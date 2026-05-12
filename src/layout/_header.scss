@@ -1,0 +1,80 @@
+@use "../styles/variables" as *;
+
+.header {
+  max-height: 100vh;
+  margin-top: -5rem;
+  margin: auto;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(250, 237, 205, 0) 0%,
+      rgba(253, 245, 227, 0.2) 30%,
+      rgba(253, 245, 227, 0.6) 50%,
+      rgba(253, 245, 227, 0.9) 65%
+    ),
+    url(../img/3.jpg);
+
+  background-size: cover;
+  background-position: center;
+
+  &__text-box {
+    display: block;
+    width: 80vw;
+    height: 100vh;
+    margin: auto;
+    padding-top: 10rem;
+    text-align: center;
+
+    h1 {
+      text-shadow: 5px 5px 10px $color-light-1;
+      font-size: 5rem;
+    }
+
+    p {
+      padding-top: 1rem;
+      font-size: 1.7rem;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      font-size: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    & {
+      &__text-box {
+        h1 {
+          font-size: 3rem;
+        }
+        p {
+          padding-top: 2rem;
+          font-size: 1rem;
+        }
+
+        .btn {
+          margin-top: 2rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: ($breakpoint-sm + 1)) and (max-width: $breakpoint-md) {
+    & {
+      &__text-box {
+        h1 {
+          font-size: 3.5rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+
+        .btn {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use "./variables" as *;
+
+@mixin breakpoint($size) {
+  @if $size == "sm" {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $size == "md" {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $size == "lg" {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin hd_main($size, $color: $color-dark-1) {
+  font-family: "Rochester";
+  font-size: $size;
+  color: $color;
+}
+@mixin hd_sub($size, $color: $color-dark-1) {
+  font-size: $size;
+  color: $color;
+  font-weight: 400;
+}
+@mixin hd_accent($color: $color-dark-1) {
+  font-family: "Playfair Display", serif;
+  color: $color;
+}
+
+@mixin text_size-md {
+  font-size: 1.2rem;
+}
+@mixin text_size-lg {
+  font-size: 1.4rem;
+}
+
+@mixin button-base() {
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

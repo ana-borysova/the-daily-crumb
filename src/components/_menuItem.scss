@@ -1,0 +1,11 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+}

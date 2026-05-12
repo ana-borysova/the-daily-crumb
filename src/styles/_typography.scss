@@ -1,0 +1,40 @@
+@use "./mixins" as *;
+
+.heading_main_light-lg {
+  @include hd_main(6rem);
+}
+.heading_main_light-md {
+  @include hd_main(4rem);
+}
+.heading_main_light-sm {
+  @include hd_main(2rem);
+}
+
+.heading_main_dark-sm {
+  @include hd_main(2.5rem, $color-dark-4);
+}
+
+.heading_sub_light-lg {
+  @include hd_sub(4rem);
+}
+.heading_sub_light-md {
+  @include hd_sub(2.5rem);
+}
+.heading_sub_light-sm {
+  @include hd_sub(1.5rem);
+}
+.heading_sub_dark-sm {
+  @include hd_sub(1.4rem, $color-dark-4);
+  font-weight: 500;
+}
+
+.heading__accent-lg {
+  @include hd_accent($color-dark-4);
+  font-size: 4rem;
+  font-weight: 500;
+}
+.heading__accent-md {
+  @include hd_accent($color-dark-4);
+  font-size: 2rem;
+  font-weight: 500;
+}

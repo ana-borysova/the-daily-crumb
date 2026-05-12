@@ -1,0 +1,142 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 2rem;
+
+  &__title {
+    width: 30%;
+    position: relative;
+
+    h1 {
+      position: relative;
+      padding-bottom: 2rem;
+      font-weight: 400;
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 1;
+      color: $color-dark-1;
+    }
+
+    span {
+      position: absolute;
+      padding-top: 1rem;
+      font-size: 5rem;
+      top: 0;
+      right: 1rem;
+    }
+  }
+
+  &__carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 4rem 0;
+
+    &:hover .menu__track {
+      animation-play-state: paused;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+  }
+
+  &__card {
+    flex: 0 0 400px;
+    height: 450px;
+    border-radius: 2rem;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &--sketch,
+    &--photo {
+      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      transition: opacity 0.4s ease;
+
+      img {
+        position: absolute;
+        border-radius: 15rem;
+        inset: 0;
+        width: 100%;
+        height: 90%;
+        object-fit: center;
+        transition: transform 0.4s ease;
+      }
+    }
+
+    &--sketch {
+      img {
+        mask-image: radial-gradient(circle, black 50%, transparent 70%);
+      }
+      span {
+        position: absolute;
+        width: inherit;
+        white-space: nowrap;
+        padding: 0.8rem;
+        bottom: 5%;
+        left: 50%;
+        transform: translatex(-50%);
+        font-size: 1.5rem;
+        text-align: center;
+        color: $color-dark-3;
+        border: 3px solid $color-dark-1;
+        border-radius: 40% 60px 40% 60px / 40px 60% 40px 60%;
+      }
+    }
+
+    &--photo {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: opacity 0.4s ease;
+
+      overflow: hidden;
+    }
+
+    &--label {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(153, 118, 81, 0.75);
+      color: #fff;
+      font-size: 1.1rem;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+      border-radius: 40% 60px 40% 60px;
+    }
+
+    &:hover &--sketch {
+      opacity: 0;
+    }
+    &:hover &--photo {
+      opacity: 1;
+      animation: scaleIn 0.8s ease-in-out;
+    }
+    &:hover &--photo img {
+      width: 100%;
+      height: 100%;
+      transform: scale(1.01);
+    }
+    &:hover &--label {
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use "/src/styles/variables" as *;
+
+@keyframes scribble {
+  to {
+    stroke-dashoffset: 20000;
+  }
+}
+
+.scribble-reveal {
+  position: relative;
+  font-size: 0;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transform: scaleY(-1) scaleX(-1);
+
+    polyline {
+      fill: none;
+      stroke: $color-light-3;
+      stroke-width: 300;
+      stroke-dasharray: 20000;
+      stroke-dashoffset: 0;
+      // анімація не запускається поки немає класу
+    }
+
+    &.animate polyline {
+      animation: scribble 3s linear forwards;
+    }
+  }
+}
