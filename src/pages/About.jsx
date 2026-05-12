@@ -24,7 +24,7 @@ function About() {
       {/* <div >Since 1995</div> */}
       <div className="about__image">
         <ScribbleReveal
-          src="/public/img/facade.png"
+          src="/img/facade.png"
           className="about__image--img"
           alt="Coffee machine"
         />
