@@ -1,10 +1,17 @@
+import ScribbleReveal from "../components/ScribbleReveal";
 import "./_visit.scss";
 
-function VisitUs() {
+function VisitUs({ isVisible }) {
   return (
     <div id="visit" className="visit section">
       <div className="visit__map">
-        <img src="./img/map.png" />
+        {isVisible && (
+          <ScribbleReveal
+            src="/img/map.png"
+            className="about__image--img"
+            alt="Buidling facade"
+          />
+        )}
       </div>
       <div className="visit__content">
         <h1 className="heading_main_light-lg">Find Us in SoHo</h1>

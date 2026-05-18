@@ -32,11 +32,10 @@
       stroke-width: 300;
       stroke-dasharray: 20000;
       stroke-dashoffset: 0;
-      // анімація не запускається поки немає класу
     }
 
     &.animate polyline {
-      animation: scribble 3s linear forwards;
+      animation: scribble 3.5s linear forwards;
     }
   }
 }

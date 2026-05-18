@@ -29,6 +29,8 @@
     flex-shrink: 0;
     text-align: center;
     padding-right: 4rem;
+    opacity: 0;
+    transition: opacity 2s ease;
 
     h1 {
       padding-bottom: 1rem;
@@ -43,5 +45,11 @@
       font-size: 1.4rem;
       padding-bottom: 2rem;
     }
+  }
+}
+
+.is-visible {
+  .visit__content {
+    opacity: 1;
   }
 }

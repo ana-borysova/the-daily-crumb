@@ -5,19 +5,21 @@ function Header() {
   return (
     <header id="home" className="hero section">
       <div className="hero__content">
-        <span className="hero__eyebrow heading_sub_light-sm">Welcome to</span>
-        <h1 className="heading_main_light-lg">The Daily Crumb</h1>
-        <p className="p_btm_lg text_size-lg">
-          Your comfy New York morning starts here. Freshly made pancakes,
-          specialty coffee, and an atmosphere that inspires. We bring crumbs of
-          joy to the heart of the big city.
-        </p>
+        <div className="hero__content--text">
+          <span className="hero__eyebrow heading_sub_light-sm">Welcome to</span>
+          <h1 className="heading_main_light-lg">The Daily Crumb</h1>
+          <p className="p_btm_lg text_size-lg">
+            Your comfy New York morning starts here. Freshly made pancakes,
+            specialty coffee, and an atmosphere that inspires. We bring crumbs
+            of joy to the heart of the big city.
+          </p>
 
-        <h2 className="heading_sub_light-md">
-          Find your perfect
-          <span className="heading_main_light-lg crumb">crumb</span>
-        </h2>
-        <div className="hero__content__btn">
+          <h2 className="heading_sub_light-md">
+            Find your perfect
+            <span className="heading_main_light-lg crumb">crumb</span>
+          </h2>
+        </div>
+        <div className="hero__content--btn">
           <a href="#about" className="btn-sketch text-flicker">
             See our Story &rarr;
             <svg className="btn-sketch__circle" viewBox="0 0 100 40">

@@ -5,7 +5,7 @@ import { SiCoffeescript } from "react-icons/si";
 import { LuCroissant } from "react-icons/lu";
 import ScribbleReveal from "../components/ScribbleReveal";
 
-function About() {
+function About({ isVisible }) {
   return (
     <div className="about section" id="about">
       <div className="about__marquee">
@@ -21,13 +21,14 @@ function About() {
         </div>
       </div>
 
-      {/* <div >Since 1995</div> */}
       <div className="about__image">
-        <ScribbleReveal
-          src="/img/facade.png"
-          className="about__image--img"
-          alt="Coffee machine"
-        />
+        {isVisible && (
+          <ScribbleReveal
+            src="/img/facade.png"
+            className="about__image--img"
+            alt="Buidling facade"
+          />
+        )}
       </div>
       <div className="about__content">
         <div className="about__content__heading">

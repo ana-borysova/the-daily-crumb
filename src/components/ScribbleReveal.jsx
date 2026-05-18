@@ -19,7 +19,7 @@ function ScribbleReveal({ src, alt, className }) {
       <svg
         ref={svgRef}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1500 1062"
+        viewBox="100 100 800 662"
       >
         <polyline
           points="0,154 131,0 0,348 269,0 0,562 437,0 

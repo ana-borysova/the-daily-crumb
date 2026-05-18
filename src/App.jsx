@@ -10,6 +10,7 @@ import VisitUs from "./pages/VisitUs";
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [visibleSections, setVisibleSections] = useState({});
   const totalSections = 4;
 
   const wheelRef = useRef();
@@ -58,6 +59,37 @@ function App() {
     return () => el.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const sections = wheelRef.current.querySelectorAll(".section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target._timer = setTimeout(() => {
+              entry.target.classList.add("is-visible");
+              setVisibleSections((prev) => ({
+                ...prev,
+                [entry.target.id]: true,
+              }));
+            }, 250);
+          } else {
+            clearTimeout(entry.target._timer);
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      },
+      {
+        root: wheelRef.current,
+        threshold: 0.5,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <div className="site-wrapper">
@@ -75,9 +107,9 @@ function App() {
           </div>
           <main ref={wheelRef} className="horizontal-scroll">
             <Hero />
-            <About />
+            <About isVisible={visibleSections["about"]} />
             <Menu isOpen={isMenuOpen} handleOpen={setIsMenuOpen} />
-            <VisitUs />
+            <VisitUs isVisible={visibleSections["visit"]} />
           </main>
         </div>
       </div>

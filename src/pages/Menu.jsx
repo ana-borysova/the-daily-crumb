@@ -52,7 +52,9 @@ function Menu({ isOpen, handleOpen }) {
     <div id="menu" className="menu section">
       <div className="menu__title">
         <h1 className="heading_sub_light-md">This month's </h1>
-        <span className="heading_main_light-lg text-flicker">specials</span>
+        <span className="heading_main_light-lg text-flicker decor">
+          specials
+        </span>
       </div>
 
       <div className="menu__carousel">
@@ -77,7 +79,7 @@ function Menu({ isOpen, handleOpen }) {
 
       <div>
         <button
-          className="btn btn-sketch"
+          className="btn btn-sketch heading_sub_light-lg"
           type="button"
           onClick={() => handleOpen(true)}
         >
