@@ -108,6 +108,7 @@
 
   @include tablet {
     min-height: 100%;
+    margin-top: 3rem;
     &__content {
       &__heading {
         &--accent {
@@ -195,6 +196,11 @@
 
       p {
         font-size: 1.4rem;
+      }
+
+      .btn {
+        margin: 1rem 2rem 1rem 0;
+        font-size: 1.7rem;
       }
     }
   }
