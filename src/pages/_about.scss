@@ -23,6 +23,8 @@
     &--track {
       display: inline-flex;
       animation: marquee 40s linear infinite;
+      will-change: transform;
+      transform: translateZ(0);
     }
   }
 
@@ -150,6 +152,7 @@
     }
     &__content {
       max-width: 100vw;
+      max-height: 50%;
       padding: 6rem 1.5rem;
 
       &__heading {
