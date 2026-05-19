@@ -1,12 +1,13 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
 
 .hero {
   height: 100%;
   display: flex;
   flex: 1 1 auto;
   background: transparent;
-  align-items: center;
+  align-items: stretch;
 
   &__eyebrow {
     display: inline-block;
@@ -76,6 +77,100 @@
     &-img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include laptop {
+    .hero__content {
+      &--btn {
+        a {
+          font-size: 1.5rem;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    min-height: 100%;
+    .hero__content {
+      padding: 3rem 3rem 1rem 3rem;
+
+      &--text {
+        h1 {
+          font-size: 5rem;
+        }
+      }
+    }
+
+    .hero__image {
+      img {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+
+    &__eyebrow {
+      padding-top: 0.5rem;
+    }
+
+    &__content {
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+
+      &--text {
+        h1 {
+          font-size: 5rem;
+        }
+
+        h2 {
+          .crumb {
+            left: 40rem;
+          }
+        }
+      }
+
+      &--btn {
+        margin: 5rem 0 2rem 0;
+        gap: 3rem;
+        a {
+          font-size: 1.5rem;
+          padding: 0;
+        }
+      }
+    }
+    &__image {
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 15%,
+        black 95%,
+        transparent 100%
+      );
+    }
+  }
+
+  @include mobile-sm {
+    &__content {
+      &--text {
+        h2 {
+          font-size: 2rem;
+
+          .crumb {
+            left: 20rem;
+            font-size: 5rem;
+          }
+        }
+      }
+      &--btn {
+        margin: 6rem 0 2rem 0;
+        gap: 2rem;
+      }
     }
   }
 }

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./_menuModal.scss";
 import MenuItem from "./MenuItem";
 import { IoCloseOutline } from "react-icons/io5";
@@ -200,15 +201,37 @@ const beverages = [
 ];
 
 function MenuModal({ isOpen, onClose }) {
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsClosing(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isClosing) {
+      const timer = setTimeout(() => {
+        onClose();
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isClosing, onClose]);
+
   if (isOpen) {
     return (
       <div className="modal__overlay">
-        <div className="modal">
+        <div className={`modal ${isClosing ? "is-closing" : ""}`}>
+          <button
+            className="btn__close close"
+            onClick={() => {
+              setIsClosing(true);
+            }}
+          >
+            <IoCloseOutline size={28} />
+          </button>
           <img className="line" src="/img/line.png" />
           <div className="modal__header">
-            <button className="btn__close close" onClick={onClose}>
-              <IoCloseOutline size={28} />
-            </button>
             <h1 className="heading__accent-lg">The Daily Crumb Menu</h1>
             <img className="image" src="/img/menu_bg3.png" />
           </div>

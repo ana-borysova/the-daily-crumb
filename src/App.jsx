@@ -20,6 +20,7 @@ function App() {
 
     const handleWheel = (e) => {
       if (isMenuOpen) return;
+      if (window.innerWidth <= 1024) return;
       e.preventDefault();
       const el = wheelRef.current;
       const sectionWidth = el.clientWidth;
@@ -49,6 +50,7 @@ function App() {
     const el = wheelRef.current;
 
     const handleScroll = () => {
+      if (window.innerWidth <= 1024) return;
       const sectionWidth = el.clientWidth;
       const scrollLeft = el.scrollLeft;
       const maxScroll = sectionWidth * (totalSections - 1);

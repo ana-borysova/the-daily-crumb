@@ -77,9 +77,9 @@ function Menu({ isOpen, handleOpen }) {
         </div>
       </div>
 
-      <div>
+      <div className="menu__footer">
         <button
-          className="btn btn-sketch heading_sub_light-lg"
+          className="btn btn-sketch heading_sub_light-lg text-flicker"
           type="button"
           onClick={() => handleOpen(true)}
         >

@@ -1,4 +1,5 @@
 @use "/src/styles/variables" as *;
+@use "/src/styles/breakpoints" as *;
 
 .progress-bar {
   position: relative;
@@ -30,21 +31,27 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+
+  @include mobile {
+    padding: 1rem;
+  }
 }
 
 .site-card {
   width: 100%;
   height: 90vh;
-  //max-width: $container-max-width-lg;
   background-color: $color-light-3;
   background-image: url("/img/groovepaper.png");
   background-blend-mode: multiply;
-
   border-radius: 2rem;
   overflow: clip;
   position: relative;
   display: flex;
   flex-direction: column;
+
+  @include tablet {
+    height: 95vh;
+  }
 }
 
 .horizontal-scroll {
@@ -56,6 +63,18 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   scroll-behavior: smooth;
+
+  @include tablet {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: none;
+    flex-direction: column;
+
+    & > * {
+      flex: 0 0 auto;
+      min-height: 100%;
+    }
+  }
 
   &::-webkit-scrollbar {
     display: none;

@@ -1,22 +1,39 @@
+@use "/src/styles/breakpoints" as *;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  overflow: hidden;
+  height: 100%;
+  font-size: 100%; //16px
+
+  @include laptop {
+    font-size: 87.5%; // 1rem = 14px
+  }
+
+  @include tablet {
+    font-size: 75%; // 1rem = 12px
+  }
+
+  @include mobile {
+    font-size: 68.75%; // 1rem = 11px
+  }
+
+  @include mobile-sm {
+    font-size: 65.5%; // 1rem = 10px
+  }
+}
+
 body {
-  font-size: 65, 5%; //10px
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   line-height: 1.5;
   color: $color-text-main;
   background-color: $color-bg-1;
-  overflow: hidden;
-  height: 100%;
-}
-
-html {
-  overflow: hidden;
   height: 100%;
 }
 
@@ -27,6 +44,5 @@ html {
 }
 
 .slide-bottom {
-  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
